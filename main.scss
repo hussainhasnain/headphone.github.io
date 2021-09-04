@@ -1,0 +1,634 @@
+
+/*************************************** Media Queries ************************************/
+$bp-smallest: 24em; // for 375px
+$bp-small: 37.5em; // for 600px
+$bp-medium: 56.25em; // for 900px
+$bp-large: 75em; // for 1200px
+$bp-largest: 112.5em; // for 1800px
+
+/*************************************** FONTS ********************************************/
+$font-primary: 'Poppins', sans-serif;
+
+/*************************************** COLORS ********************************************/
+$color-white: #fff;
+$color-black: #000;
+$color-light: #f0f3f6;
+$color-grey-light: #bfc1c9;
+$color-grey-medium: #7a6c86;
+$color-grey-dark:#51535d; 
+$color-orange: #bf1b13;
+$color-dark: #080a10;
+
+
+/*************************************** Center our content ************************************/
+.row{
+    max-width: 114rem;
+    margin: 0 auto;
+    @media only screen and (max-width: $bp-large){
+        max-width: 100rem;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: $bp-medium){
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: $bp-small){
+        max-width: 55rem;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: $bp-smallest){
+        max-width: 50rem;
+        margin: 0 auto;
+    }
+}
+/*************************************** Basic Styling ********************************************/
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: $color-grey-dark;
+}
+img{
+    max-width: 100%;
+    height: auto;
+    @media only screen and (max-width: $bp-small){
+        max-width: 60%;
+        height: auto;
+    }
+}
+h1,h2,h3,h4,h5{
+    color: $color-dark;
+}
+
+*,
+*:before,
+*:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    @media only screen and (max-width: $bp-large){
+        font-size: 56.25%; //9rem
+    }
+    @media only screen and (max-width: $bp-medium){
+        font-size: 50%; //8rem
+    }
+    @media only screen and (max-width: $bp-small){
+        font-size: 43.75%;//7rem
+    }
+    @media only screen and (max-width: $bp-smallest){
+        font-size: 37.5%; //6rem
+    }
+    
+}
+body{
+    font-family: $font-primary;
+    font-weight: 400;
+    color: $color-grey-dark;
+    line-height: 1.6;
+}
+/*************************************** Header Starts Here ********************************************/
+.header{
+    // background-color: yellow;
+    overflow: hidden;
+    &__navigation{
+    }
+    &__content{
+        @media only screen and (max-width:$bp-small){
+            margin-top: 10rem;
+        }
+        &--flex{
+            height: 55vh;
+            display: flex;
+            align-items: center;
+            @media only screen and (max-width: $bp-small){
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+        &--photo{
+            flex: 0 0 50%;
+            @media only screen and (max-width: $bp-small){
+                order: 1;
+                margin-bottom: 10rem;
+            }
+            &-img{
+                display: block;
+            }
+        }
+        &--text{
+            flex: 1;
+            padding: 2vh 5vw;
+            transform: translateX(-10rem);
+            @media only screen and (max-width: $bp-medium){
+                transform: translateX(0);
+            }
+            &-para{
+                font-size: 1.4rem;
+                margin-bottom: 2rem;
+                margin-top: 2rem;
+            }
+            &-price{
+                font-size: 1.6rem;
+                color: $color-dark;
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+}
+.nav{
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+    @media only screen and (max-width: $bp-small){
+        align-items: flex-start;
+    }
+    &__list{
+        
+        & *:not(:last-child){
+            margin-right: 2rem;
+            margin-bottom: 1rem;
+        }
+    @media only screen and (max-width: $bp-small){
+        display: none;
+    }
+    }
+    &__item{
+        display: inline;
+        
+        @media only screen and (max-width: $bp-small){
+            display: block;
+            text-align: center;
+        }
+        
+    }
+    &__link{
+        font-size: 1.6rem;
+        
+        &:hover{
+            color: $color-dark;
+            transition: all .2s;
+        }
+    }
+}
+.logo{
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.icon{
+    &__menu{
+       font-size: 2rem; 
+       display: none;
+       @media only screen and (max-width: $bp-small){
+           display: block;
+       }
+    }
+    &__user{
+        font-size: 2rem;
+    }
+    &__envelope{
+        font-size: 2rem;
+    }
+    &__facebook{
+        font-size: 3rem;
+        cursor: pointer;
+        &:hover{
+            color: $color-light;
+            transition: all .2s;
+        }
+    }
+    &__twitter{
+        font-size: 3rem;
+        cursor: pointer;
+        &:hover{
+            color: $color-light;
+            transition: all .2s;
+        }
+    }
+    &__instagram{
+        font-size: 3rem;
+        cursor: pointer;
+        &:hover{
+            color: $color-light;
+            transition: all .2s;
+        }
+    }
+}
+.btn{
+    display: inline-block;
+    
+    &__dark{
+        padding: .5rem 2rem;
+        background-color: $color-dark;
+        color: $color-light;
+        font-size: 1.5rem;
+        border: 1px solid $color-black;
+        &:hover{
+            background-color: $color-light;
+            color: $color-dark;
+            transition: all .5s;
+            border: 1px solid $color-black;
+        }
+    }
+}
+.heading-primary{
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* ======= Swiper =======*/
+.swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 3rem;
+  }
+
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+  }
+  .headphone{
+      max-width: 100%;
+      height: auto;
+  }
+/*************************************** Header ends Here ********************************************/
+
+/*************************************** Section Product Starts Here ********************************************/
+.product{
+    padding: 5rem 0;
+    overflow: hidden;
+    &__flex{
+        display: flex;
+        align-items: center;
+        @media only screen and (max-width: $bp-small){
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    &__text{
+        flex: 0 0 50%;
+        padding: 2vh 5vw;
+        transform: translateX(3rem);
+        &--para{
+            font-size: 1.3rem;
+            margin: 2rem 0;
+        }
+        &--price{
+            font-size: 2rem;
+            color: $color-dark;
+            margin-bottom: 2rem;
+        }
+    }
+    &__photo{
+        flex: 1;
+        &--img{
+
+        }
+    }
+}
+.heading-secondary{
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    &__features{
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+}
+/*************************************** Section Product Ends Here ********************************************/
+
+/*************************************** Section Features starts Here ********************************************/
+.features{
+    padding: 5rem 0;   
+    &__flex{
+        display: flex;
+        @media only screen and (max-width: $bp-small){
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    &__content{
+        flex: 0 0 33%;
+        padding: 5vh 2vw;
+        &--box{
+            text-align: end;
+            margin-bottom: 3rem;
+            &-2{
+                text-align: start;
+                margin-bottom: 3rem;
+            }
+        }
+        &--text{
+            font-size: 1.5rem;
+        }
+        &--link{
+            font-size: 1.3rem;
+            color: $color-dark;
+        }
+    }
+    &__photo{
+        flex: 0 0 33%;
+        @media only screen and (max-width: $bp-small){
+            transform: translateX(8rem);
+        }
+        &--img{
+
+        }
+    }
+}
+.heading-tertiary{
+    font-size: 2rem;
+    color: $color-dark;
+    font-weight: 500;
+}
+/*************************************** Section Features Ends Here ********************************************/
+
+/*************************************** Section Design starts Here ********************************************/
+.design{
+    padding: 5rem 0;
+    &__content{
+        margin-top: 10rem;
+        padding: 10rem 0;
+        &--overlay{
+            position: relative;
+        }
+        &--img-box{
+            &:before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 80%;
+                top: 0;
+                left: 0;
+                background-color: rgba($color-grey-light, .9);
+            }  
+            &-img{
+                 transform: translateY(-11rem);
+            }
+        }
+        &--text-box{
+            transform: translateY(-12rem);
+            background-color: $color-light;
+            padding: 2vh 2vw;
+            width: 80%;
+            margin: 0 auto;
+        }
+        &--flex{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            &-text{
+                &-price{
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                }
+                &-color{
+                    color: $color-dark;
+                    font-size: 2rem;
+                    font-weight: 600;
+                }
+            }
+            &-icon{
+                font-size: 2.5rem;
+            }
+        }
+    }
+
+
+    
+    .owl-theme .owl-nav {
+        margin-top: -10rem;
+        font-size: 5rem;
+        color: $color-dark;
+    }
+    .owl-theme .owl-dots .owl-dot span {
+        width: 5rem;
+        height: 1rem;
+        margin: 5px 7px;
+        background: #D6D6D6;
+        display: block;
+        -webkit-backface-visibility: visible;
+        transition: opacity .2s ease;
+        border-radius: 30px;
+        background-color: $color-dark;
+    }
+}
+/*************************************** Section Support starts Here ********************************************/
+.support{
+    padding: 5rem 0;
+    &__flex{
+        display: flex;
+        align-items: center;
+        @media only screen and (max-width: $bp-small){
+            flex-direction: column;
+        }
+    }
+    &__photo{
+        flex: 0 0 50%;
+        
+        &--img{
+            
+        }
+    }
+    &__textbox{
+        padding: 2vh 5vw;
+        & *:not(:last-child){
+            margin-bottom: 4rem;
+        }
+        flex: 1;
+        &--text{
+            font-size: 1.4rem;
+        }
+    }
+}
+/*************************************** Section Support Ends Here ********************************************/
+
+/*************************************** Section Form starts Here ********************************************/
+.form{
+    padding: 10rem 0;
+    &__heading{
+        text-align: center;
+        margin-bottom: 5rem;
+        font-size: 4rem;
+    }
+}
+.forms{
+    transform: translateX(10rem);
+    &__grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-gap: 5rem;
+    }
+    &__group{
+
+    }
+    &__input{
+        padding: 1rem 2rem;
+        border: none;
+        
+    }
+}
+/*************************************** Section Form Ends Here ********************************************/
+/*************************************** Footer Starts Here ********************************************/
+
+.footer{
+    padding: 8rem 0;
+    background-color: $color-dark;
+    &__flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media only screen and (max-width: $bp-small){
+            flex-direction: column;
+            & *:not(:last-child){
+                margin-bottom: 3rem;
+            }
+        }
+        &--item{
+            &-social{
+                & *:not(:last-child){
+                    margin-right: 2rem;
+                }
+            }
+        }
+    }
+    &__logo{
+        color: $color-light;
+    }
+    &__nav{
+       &--list{
+        & *:not(:last-child){
+            margin-right: 2rem;
+        }
+       } 
+       &--item{
+        display: inline;
+        @media only screen and (max-width: $bp-small){
+            display: block;
+        }
+       }
+       &--link{
+        font-size: 1.6rem;
+        &:hover{
+            color: $color-light;
+            transition: all .2s;
+        }
+       }
+    }
+}
+/*************************************** Footer End Here ********************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.header{
+    &__navigation{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.logo{
+
+}
+.menu__icon{
+    display: none;
+    @media only screen and (max-width: 80rem){
+        display: block;
+    }
+}
+.nav{
+    &__list{
+        @media only screen and (max-width: 80rem){
+            display: none;
+        }
+    }
+    &__item{
+        display: inline;
+        @media only screen and (max-width: 80rem){
+            display: block;
+        }
+    }
+    &__link{
+
+    }
+}
+*/
